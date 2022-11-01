@@ -6,8 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "front": "cd FrontEnd && npm run start",
-    "back": "cd Backend && npm run test",
-    "start": "npm run back && npm run front"
+    "front-i": "cd FrontEnd && npm i",
+    "back": "cd Backend && npm run start",
+    "back-i": "cd Backend && npm i",
+    "Start": "concurrently -k -n \"Back,Front\" -c \"#00FF00.bold,#0000FF.bold\" -p \"[{name}]\" \"npm:back\" \"npm:front\"",
+    "Init": "npm i && concurrently -n \"Back,Front\" -c \"green,blue\" -p \"[{name} - {time}]\" \"npm:back-i\" \"npm:front-i\""
   },
   "repository": {
     "type": "git",
@@ -18,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/Bparsis/Mapo/issues"
   },
-  "homepage": "https://github.com/Bparsis/Mapo#readme"
+  "homepage": "https://github.com/Bparsis/Mapo#readme",
+  "dependencies": {
+    "concurrently": "^7.5.0"
+  }
 }

@@ -1,0 +1,32 @@
+.Header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 3%;
+  vertical-align: middle;
+}
+
+.TopBar {
+  padding: 0.5% 0%;
+  background-color: var(--color-Primary);
+  height: 100%;
+  vertical-align: middle;
+}
+
+.TopBar .UserButton {
+  margin: 0 1%;
+  color: inherit;
+  background-color: var(--color-Secondary-Back);
+  border-radius: 15%/45%;
+  border: 3px solid var(--color-Secondary);
+}
+
+.ThemeButton {
+  position: absolute;
+  right: 0%;
+  margin: 0 1%;
+  color: inherit;
+  background-color: var(--color-Secondary-Back);
+  border-radius: 15%/45%;
+  border: 3px solid var(--color-Secondary);
+}

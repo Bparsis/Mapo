@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import keyLangType from "../../Types/Types/keyLangType";
+import keyLangType from "../Types/Types/keyLangType";
 import Trad from "../Trad/Trad";
 
 

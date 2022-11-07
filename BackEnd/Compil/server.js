@@ -11,9 +11,6 @@ const port = process.env.PORT || 5000;
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.use((0, cors_1.default)());
-app.get("/test", (req, res) => {
-    res.send("Hello");
-});
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });

@@ -3,8 +3,8 @@ import React, {
   ReactNode,
   useState,
 } from "react";
-import IAppContext from "../Types/Interfaces/IAppContext";
-import IUser from "../Types/Interfaces/IUser";
+import IAppContext from "./Types/Interfaces/IAppContext";
+import IUser from "./Types/Interfaces/IUser";
 // import Loading from "../components/Loading";
 // import useDb from "./Hooks/useDb";
 import useTranslate from "./Hooks/useTranslate";

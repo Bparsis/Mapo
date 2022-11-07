@@ -1,9 +1,9 @@
 [data-theme="Dark"] {
   --color-Text: #FFFFFF;
-  --color-Primary: #22DD66;
-  --color-Secondary: #2266DD;
+  --color-Primary: #00BB44;
+  --color-Secondary: #0044BB;
   --color-Ternary: #229999;
-  --color-Primary-Back: #002211;
-  --color-Secondary-Back: #001122;
+  --color-Primary-Back: #001100;
+  --color-Secondary-Back: #000011;
   --color-Ternary-Back: #001111;
 }

@@ -1,24 +1,23 @@
 import React, { useContext } from 'react'
-import IAppContext from '../../../Types/Interfaces/IAppContext';
 import { AppContext } from '../../../Utils/ContextProvider'
 import TriggerTheme from '../../../Utils/TrigerTheme';
 
 
 const TopBar = () => {
   const AppCtx = useContext(AppContext);
-  const { user, theme, setTheme } = {...AppCtx!};
+  const { user, translate } = {...AppCtx!};
 
   return (
     <div className="TopBar">
       {!user.isConnected &&
         <>
-          <button value="LogIn" className="UserButton">LogIn</button>
-          <button value="SignUp" className="UserButton">SignUp</button>
+          <button value="LogIn" className="UserButton">{translate("LogIn")}</button>
+          <button value="SignUp" className="UserButton">{translate("SignUp")}</button>
         </>
       }{user.isConnected &&
         <>
-          <button value="Profile" className="UserButton">Profile</button>
-          <button value="Disconnect" className="UserButton">Disconnect</button>
+          <button value="Profile" className="UserButton">{translate("Profile")}</button>
+          <button value="Disconnect" className="UserButton">{translate("Disconnect")}</button>
         </>
       }
       <TriggerTheme/>

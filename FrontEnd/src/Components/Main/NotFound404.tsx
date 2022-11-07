@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import {Link} from "react-router-dom"
+import { AppContext } from '../../Utils/ContextProvider'
 
 const NotFound404 = () => {
+  const AppCtx = useContext(AppContext)
+  const {translate} = {...AppCtx!}
   return (
-    <div>NotFound404</div>
+    <>
+      <div>{translate("NotFound404")}</div>
+      <Link to="/">{translate("Home")}</Link>
+    </>
   )
 }
 

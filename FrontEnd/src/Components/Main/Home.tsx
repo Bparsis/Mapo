@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AppContext } from '../../Utils/ContextProvider';
 
 const Home = () => {
+  const AppCtx = useContext(AppContext); 
+  const {translate} = {...AppCtx!}
   return (
-    <div>Home</div>
+    <div>{translate("Home")}</div>
   )
 }
 

@@ -8,6 +8,7 @@ import IUser from "./Types/Interfaces/IUser";
 // import Loading from "../components/Loading";
 // import useDb from "./Hooks/useDb";
 import useTranslate from "./Hooks/useTranslate";
+
 const AppContext = createContext<IAppContext | null>(null);
 
 interface IContextProvider {
@@ -48,7 +49,7 @@ const ContexProvider = ({ children }: IContextProvider) => {
 
 
 
-  const [user, setUser] = useState<IUser>({ isConnected: true });
+  const [user, setUser] = useState<IUser>({ isConnected: false });
   const [theme, setTheme] = useState<string>("Light");
   const {setLang, translate} = useTranslate();
 

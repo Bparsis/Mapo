@@ -1,9 +1,9 @@
 {
   "TriggerTheme": "Changer le theme",
   "Home": "Acceuil",
-  "LogIn": "Connection",
-  "SignUp": "Inscription",
+  "Login": "Connection",
+  "Signup": "Inscription",
   "Profile": "Profil",
-  "Disconnect": "Déconnection",
+  "Logout": "Déconnection",
   "NotFound404": "Erreur 404"
 }

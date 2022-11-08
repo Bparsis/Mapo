@@ -1,9 +1,11 @@
 [data-theme="Dark"] {
   --color-Text: #FFFFFF;
+  --color-Text-Secondary: #888888;
   --color-Primary: #00BB44;
   --color-Secondary: #0044BB;
   --color-Ternary: #229999;
   --color-Primary-Back: #001100;
   --color-Secondary-Back: #000011;
   --color-Ternary-Back: #001111;
+  --color-Modal-Back: #00000099;
 }

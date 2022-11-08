@@ -1,8 +1,8 @@
 import FR from "./Lang/FR.json"
 import EN from "./Lang/EN.json"
-import tradType from "../Types/Types/tradType";
+import TTrad from "../Types/Types/TTrad";
 
-const Trad: tradType = {
+const Trad: TTrad = {
   "fr": FR,
   "en": EN
 }

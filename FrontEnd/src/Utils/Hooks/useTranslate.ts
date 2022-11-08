@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import keyLangType from "../Types/Types/keyLangType";
+import TKeyLang from "../Types/Types/TKeyLang";
 import Trad from "../Trad/Trad";
 
 
 export default function useTranslate () {
 
-  const [lang, setLang] = useState<keyLangType>("fr");
+  const [lang, setLang] = useState<TKeyLang>("fr");
   const [trad, setTrad] = useState(Trad[lang]);
   
   useEffect(() => {

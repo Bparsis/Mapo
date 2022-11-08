@@ -12,6 +12,8 @@ body {
   height: 100%;
 }
 
+/* :root{  transition: 1s; } W.I.P. */
+
 .App {
   text-align: center;
   color: var(--color-Text);

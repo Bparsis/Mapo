@@ -1,9 +1,11 @@
 [data-theme="Light"] {
   --color-Text: #000000;
+  --color-Text-Secondary: #777777;
   --color-Primary: #33FF77;
   --color-Secondary: #3377FF;
   --color-Ternary: #33BBBB;
   --color-Primary-Back: #DDFFEE;
   --color-Secondary-Back: #DDEEFF;
   --color-Ternary-Back: #DDFFFF;
+  --color-Modal-Back: #00000066;
 }

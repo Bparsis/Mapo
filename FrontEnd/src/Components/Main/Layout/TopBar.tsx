@@ -1,6 +1,9 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../../../Utils/ContextProvider'
 import TriggerTheme from '../../../Utils/TrigerTheme';
+import Login from '../../User/Login';
+import Logout from '../../User/Logout';
+import Signup from '../../User/Signup';
 
 
 const TopBar = () => {
@@ -11,13 +14,13 @@ const TopBar = () => {
     <div className="TopBar">
       {!user.isConnected &&
         <>
-          <button value="LogIn" className="UserButton">{translate("LogIn")}</button>
-          <button value="SignUp" className="UserButton">{translate("SignUp")}</button>
+          <Login />
+          <Signup />
         </>
       }{user.isConnected &&
         <>
           <button value="Profile" className="UserButton">{translate("Profile")}</button>
-          <button value="Disconnect" className="UserButton">{translate("Disconnect")}</button>
+          <Logout />
         </>
       }
       <TriggerTheme/>

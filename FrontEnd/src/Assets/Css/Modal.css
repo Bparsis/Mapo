@@ -17,7 +17,7 @@
   background-color: var(--color-Secondary-Back);
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
-  border-radius: 5%/25%;
+  border-radius: 5%/15%;
   border: 2px solid var(--color-Primary);
   width: 80%; /* Could be more or less, depending on screen size */
 }

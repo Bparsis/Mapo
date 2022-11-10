@@ -1,10 +1,10 @@
 import FR from "./Lang/FR.json"
-import EN from "./Lang/EN.json"
+import GB from "./Lang/GB.json"
 import TTrad from "../Types/Types/TTrad";
 
 const Trad: TTrad = {
   "fr": FR,
-  "en": EN
+  "gb": GB
 }
 
 export default Trad;

@@ -8,6 +8,7 @@ import IUser from "./Types/Interfaces/IUser";
 // import Loading from "../components/Loading";
 // import useDb from "./Hooks/useDb";
 import useTranslate from "./Hooks/useTranslate";
+import TTheme from "./Types/Types/TTheme";
 
 const AppContext = createContext<IAppContext | null>(null);
 
@@ -50,7 +51,7 @@ const ContexProvider = ({ children }: IContextProvider) => {
 
 
   const [user, setUser] = useState<IUser>({ isConnected: false });
-  const [theme, setTheme] = useState<string>("Light");
+  const [theme, setTheme] = useState<TTheme>("Light");
   const {setLang, translate} = useTranslate();
 
   // useEffect(() => {

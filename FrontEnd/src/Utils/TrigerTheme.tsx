@@ -13,7 +13,7 @@ const TriggerTheme = () => {
         break;
       case "Light":
         setTheme("Dark");
-        setLang("en"); // ? Test pour les traduction
+        setLang("gb"); // ? Test pour les traduction
         break;
     }
   }

@@ -1,3 +1,3 @@
-type TKeyLang = "fr" | "en";
+type TKeyLang = "fr" | "gb";
 
 export default TKeyLang;

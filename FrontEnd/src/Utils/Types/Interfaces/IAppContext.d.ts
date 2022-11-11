@@ -2,7 +2,11 @@
 // import TKeyLang from "../Types/TKeyLang";
 // import IUser from "./IUser";
 
+import { Dispatch } from "react";
+
 export default interface IAppContext {
+  connected: boolean;
+  setConnected: Dispatch<SetStateAction<boolean>>;
   user: IUser;
   setUser: Dispatch<SetStateAction<IUser>>;
   theme: TTheme;

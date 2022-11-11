@@ -8,16 +8,16 @@ import Signup from '../../User/Signup';
 
 const TopBar = () => {
   const AppCtx = useContext(AppContext);
-  const { user, translate } = {...AppCtx!};
+  const { connected, translate } = {...AppCtx!};
 
   return (
     <div className="TopBar">
-      {!user.isConnected &&
+      {!connected &&
         <>
           <Login />
           <Signup />
         </>
-      }{user.isConnected &&
+      }{connected &&
         <>
           <button value="Profile" className="UserButton">{translate("Profile")}</button>
           <Logout />

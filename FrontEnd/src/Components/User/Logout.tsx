@@ -4,11 +4,11 @@ import { AppContext } from '../../Utils/ContextProvider';
 
 const Logout = () => {
   const AppCtx = useContext(AppContext);
-  const {translate, setUser} = {...AppCtx!}
+  const {translate, setConnected} = {...AppCtx!}
   const { openModal, Modal, closeModal } = useModal();
 
   const log = () => {
-    setUser({isConnected: false});
+    setConnected(false);
     closeModal();
   }
 

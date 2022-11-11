@@ -1,30 +1,59 @@
-import React from 'react';
-import { FormEvent } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AddressInput from './AddressInput'
+import useDB from "../../Utils/Hooks/useDb";
+import IUser from '../../Utils/Types/Interfaces/IUser';
+import Loading from '../../Utils/Loading';
+import { AppContext } from '../../Utils/ContextProvider';
 
-interface TUser {
-  userName: string;
-  password: string;
-  mail?: string;
-  phone?: string;
-  long: number;
-  lat: number;
-  transport: string;
-}
+const SignupForm = ({ closeModal }: { closeModal: () => void }) => {
+  const { data, loading, dBComm } = useDB();
 
-const SignupForm = () => {
+  const [formErrors, setFormErrors] = useState([]);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const AppCtx = useContext(AppContext);
+  const { setConnected, setUser } = { ...AppCtx! }
+
+  useEffect(() => {
+    if (!loading && Object.keys(data).length !== 0) {
+      handledbResponse();
+    }
+  // eslint-disable-next-line
+  }, [data, loading]);
+
+  const handledbResponse = () => {
+    if (!data.error) {
+      setConnected(true);
+      setUser(data.user);
+      closeModal();
+      setFormErrors([]);
+    } else {
+      setFormErrors(data.list);
+    }
+  }
+
+  const printError = (flag: string): string => {
+    let msg: string;
+    formErrors.map((error)=>{
+      if (error.flag === flag){
+        msg = error.message;
+      }
+    })
+    return msg;
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const password = e.target[0].value;
+    const password = e.target["password"].value;
     const Cpassword = e.target["Cpassword"].value;
     if (password !== Cpassword) {
-      console.log("error");
+      console.table([password, Cpassword]);
+      console.log("pwd !=");
       return;
     }
-    var User: TUser = {
+    var User: IUser = {
       userName: e.target["userName"].value,
       password: password,
+      role: "user",
       long: Number(e.target["coords"].value.split(",")[0]),
       lat: Number(e.target["coords"].value.split(",")[1]),
       transport: e.target["transport"].value
@@ -35,14 +64,18 @@ const SignupForm = () => {
     if (e.target["phone"].value) {
       User.phone = e.target["phone"].value;
     }
-    console.table(User);
+    dBComm("Mapo", "user", User, "/db/createUser");
   };
+
+  if (loading) { return <Loading /> }
+
   return (
     <form autoComplete='off' onSubmit={(e) => handleSubmit(e)}>
       <fieldset className="UserName">
         <label htmlFor="userName">
-          <span>userName : </span>
-          <input type="text" name="userName" id="userName" placeholder="userName" pattern="^[\w-]{3,}$" required />
+          <span>userName : </span><br />
+          <input type="text" name="userName" id="userName" placeholder="userName" pattern="^[\w-]{3,}$" required /><br />
+          <span>{printError("name")}</span>
         </label>
       </fieldset>
       <fieldset className="PassWord">

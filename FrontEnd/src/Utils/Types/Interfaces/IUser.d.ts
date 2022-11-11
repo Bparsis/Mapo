@@ -1,6 +1,10 @@
 export default interface IUser {
-  isConnected: boolean,
-  nickname?: string,
-  token?: string,
-  role?: string,
+  userName: string;
+  password: string;
+  role: string;
+  long: number;
+  lat: number;
+  transport: string;
+  mail?: string;
+  phone?: string;
 }

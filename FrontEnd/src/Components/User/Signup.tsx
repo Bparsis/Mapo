@@ -6,12 +6,12 @@ import SignupForm from './SignupForm';
 const Signup = () => {
   const AppCtx = useContext(AppContext);
   const {translate} = {...AppCtx!}
-  const { openModal, Modal } = useModal();
+  const { openModal, closeModal, Modal } = useModal();
   return (
     <>
       <button onClick={openModal} className="UserButton">{translate("Signup")}</button>
       <Modal title={translate("Signup")}>
-        <SignupForm />
+        <SignupForm closeModal={closeModal}/>
       </Modal>
     </>
   )

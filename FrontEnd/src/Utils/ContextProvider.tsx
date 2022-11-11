@@ -49,8 +49,9 @@ const ContexProvider = ({ children }: IContextProvider) => {
   // if (loading) { return <Loading /> }
 
 
-
-  const [user, setUser] = useState<IUser>({ isConnected: false });
+  
+  const [connected, setConnected] = useState<boolean>(false);
+  const [user, setUser] = useState<IUser>();
   const [theme, setTheme] = useState<TTheme>("Light");
   const {setLang, translate} = useTranslate();
 
@@ -61,6 +62,8 @@ const ContexProvider = ({ children }: IContextProvider) => {
   // }, [user])
 
   const AppContextContent: IAppContext = {
+    connected,
+    setConnected,
     user,
     setUser,
     theme,

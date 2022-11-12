@@ -18,8 +18,8 @@ const CreateUser = async (dbName: string, collName: string, User: TUser) => {
       if (alreadyExist === null) {
         var newUser = { ...User, createdAt: new Date() }
         newUser.password = hash(User.password)
-        // var result = await coll.insertOne({newUser});
-        response = { error: false, result: "result", user: newUser};
+        var result = await coll.insertOne({...newUser});
+        response = { error: false, result: result, user: newUser};
       } else {
         response = { error: true, list: [{flag: "name", message: "Nickname already taken"}] };
       }

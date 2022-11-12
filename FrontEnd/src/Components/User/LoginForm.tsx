@@ -1,0 +1,78 @@
+import React, { useContext, useEffect, useState } from 'react';
+import AddressInput from './AddressInput'
+import useDB from "../../Utils/Hooks/useDb";
+import IUser from '../../Utils/Types/Interfaces/IUser';
+import Loading from '../../Utils/Loading';
+import { AppContext } from '../../Utils/ContextProvider';
+
+const LoginForm = ({ closeModal }: { closeModal: () => void }) => {
+  const { data, loading, dBComm } = useDB();
+
+  const [formErrors, setFormErrors] = useState([]);
+
+  const AppCtx = useContext(AppContext);
+  const { setConnected, setUser } = { ...AppCtx! }
+
+  useEffect(() => {
+    if (!loading && Object.keys(data).length !== 0) {
+      handledbResponse();
+    }
+  // eslint-disable-next-line
+  }, [data, loading]);
+
+  const handledbResponse = () => {
+    if (!data.error) {
+      setConnected(true);
+      setUser(data.user);
+      closeModal();
+      setFormErrors([]);
+    } else {
+      setFormErrors(data.list);
+    }
+  }
+
+  const printError = (flag: string): string => {
+    let msg: string;
+    formErrors.map((error)=>{
+      if (error.flag === flag){
+        msg = error.message;
+      }
+    })
+    return msg;
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    var User: TLoginUser = {
+      login: e.target["login"].value,
+      password: e.target["passwordLogin"].value
+    }
+    dBComm("Mapo", "user", User, "/db/login");
+  };
+
+  if (loading) { return <Loading /> }
+
+  return (
+    <form onSubmit={(e) => handleSubmit(e)}>
+      <fieldset className="login">
+        <label htmlFor="login">
+          <span>userName or email : </span><br />
+          <input type="text" name="login" id="login" placeholder="userName or email" required /><br />
+          <span>{printError("login")}</span>
+        </label>
+      </fieldset>
+      <fieldset className="PassWord">
+        <label htmlFor="passwordLogin">
+          <span>password : </span>
+          <input type="password" name="passwordLogin" id="passwordLogin" placeholder="password" required />
+        </label>
+      </fieldset>
+      <fieldset className="Submit">
+        <button type="submit">submit</button>
+      </fieldset>
+    </form>
+  )
+}
+
+export default LoginForm

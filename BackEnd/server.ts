@@ -16,6 +16,12 @@ app.post("/db/createUser", async (req, res) => {
   res.send(result);
 });
 
+app.post("/db/login", async (req, res) => {
+	let param = req.body;
+  const result = await Endpoints.Login(param.dbName, param.collName, param.query);
+  res.send(result);
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

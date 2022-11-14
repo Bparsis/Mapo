@@ -11,7 +11,7 @@ const SignupForm = ({ closeModal }: { closeModal: () => void }) => {
   const [formErrors, setFormErrors] = useState([]);
 
   const AppCtx = useContext(AppContext);
-  const { setConnected, setUser } = { ...AppCtx! }
+  const { setConnected, setUser, translate } = { ...AppCtx! }
 
   useEffect(() => {
     if (!loading && Object.keys(data).length !== 0) {
@@ -21,13 +21,13 @@ const SignupForm = ({ closeModal }: { closeModal: () => void }) => {
   }, [data, loading]);
 
   const handledbResponse = () => {
-    if (!data.error) {
+    if (!data["error"]) {
       setConnected(true);
-      setUser(data.user);
+      setUser(data["user"]);
       closeModal();
       setFormErrors([]);
     } else {
-      setFormErrors(data.list);
+      setFormErrors(data["list"]);
     }
   }
 
@@ -73,51 +73,51 @@ const SignupForm = ({ closeModal }: { closeModal: () => void }) => {
     <form autoComplete='off' onSubmit={(e) => handleSubmit(e)}>
       <fieldset className="UserName">
         <label htmlFor="userName">
-          <span>userName : </span><br />
-          <input type="text" name="userName" id="userName" placeholder="userName" pattern="^[\w-]{3,}$" required /><br />
+          <span>{translate("userName")}</span><br />
+          <input type="text" name="userName" id="userName" placeholder={translate("userName")} pattern="^[\w-]{3,}$" required /><br />
           <span>{printError("name")}</span>
         </label>
       </fieldset>
       <fieldset className="PassWord">
         <label htmlFor="password">
-          <span>password : </span>
-          <input type="password" name="password" id="password" placeholder="password" pattern="^((?=\S*?[a-z])(?=\S*?[A-Z])(?=\S*?[0-9])(?=\S*?[@!_)(:;~\[\]\-\\\/]).{6,})$" required />
+          <span>{translate("password")}</span><br />
+          <input type="password" name="password" id="password" placeholder={translate("password")} pattern="^((?=\S*?[a-z])(?=\S*?[A-Z])(?=\S*?[0-9])(?=\S*?[@!_)(:;~\[\]\-\\\/]).{6,})$" required />
         </label>
         <br />
         <label htmlFor="Cpassword">
-          <span>Cpassword : </span>
-          <input type="password" name="Cpassword" id="Cpassword" placeholder="Cpassword" pattern="^((?=\S*?[a-z])(?=\S*?[A-Z])(?=\S*?[0-9])(?=\S*?[@!_)(:;~\[\]\-\\\/]).{6,})$" required />
+          <span>{translate("Cpassword")}</span><br />
+          <input type="password" name="Cpassword" id="Cpassword" placeholder={translate("Cpassword")} pattern="^((?=\S*?[a-z])(?=\S*?[A-Z])(?=\S*?[0-9])(?=\S*?[@!_)(:;~\[\]\-\\\/]).{6,})$" required />
         </label>
       </fieldset>
       <fieldset className="Contact">
         <label htmlFor="mail">
-          <span>mail : </span>
-          <input type="email" name="mail" id="mail" placeholder="mail" />
+          <span>{translate("mail")}</span><br />
+          <input type="email" name="mail" id="mail" placeholder={translate("mail")} />
         </label>
         <br />
         <label htmlFor="phone">
-          <span>phone : </span>
-          <input type="tel" name="phone" id="phone" placeholder="phone" pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$" />
+          <span>{translate("phone")}</span><br />
+          <input type="tel" name="phone" id="phone" placeholder={translate("phone")} pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$" />
         </label>
       </fieldset>
       <fieldset className="Address">
         <label htmlFor="address">
-          <span>address : </span>
+          <span>{translate("address")}</span><br />
           <AddressInput />
         </label>
       </fieldset>
       <fieldset className="Transport">
         <label htmlFor="transport">
-          <span>transport : </span>
+          <span>{translate("transport")}</span><br />
           <select name="transport" id="transport">
-            <option value="driving">Driving</option>
-            <option value="cycling">Cycling</option>
-            <option value="walking">Walking</option>
+            <option value="driving">{translate("Driving")}</option>
+            <option value="cycling">{translate("Cycling")}</option>
+            <option value="walking">{translate("Walking")}</option>
           </select>
         </label>
       </fieldset>
       <fieldset className="Submit">
-        <button type="submit">submit</button>
+        <button type="submit">{translate("submit")}</button>
       </fieldset>
     </form>
   )

@@ -1,10 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
+import { AppContext } from '../../Utils/ContextProvider';
 import useGeocoding from '../../Utils/Hooks/useGeocoding';
 
 const AddressInput = () => {
   const input = useRef<HTMLInputElement>(null);
   const value = useRef<HTMLInputElement>(null);
   const { Forward, forwardData } = useGeocoding();
+
+  const { translate } = useContext(AppContext);
 
   const handleAddress = () => {
     const text = input.current!.value;
@@ -43,7 +46,7 @@ const AddressInput = () => {
   return (
     <div className="autocomplete">
       <input type="hidden" name="coords" id="coords" ref={value} />
-      <input type="text" name="address" id="address" placeholder="address" onChange={handleAddress} ref={input} required />
+      <input type="text" name="address" id="address" placeholder={translate("address")} onChange={handleAddress} ref={input} required />
       {list()}
     </div>
   )

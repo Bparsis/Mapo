@@ -17,7 +17,7 @@ const Logout = () => {
     <>
       <button onClick={openModal} className="UserButton">{translate("Logout")}</button>
       <Modal title={translate("Logout")}>
-        <button type="button" onClick={log}>Logout-ez-vous</button>
+        <button type="button" onClick={log}>{translate("Logout")}</button>
       </Modal>
     </>
   )

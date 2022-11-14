@@ -5,5 +5,17 @@
   "Signup": "Signup",
   "Profile": "Profile",
   "Logout": "Disconnect",
-  "NotFound404": "Not Found 404"
+  "NotFound404": "Not Found 404",
+  "userName or email": "userName or email",
+  "password": "Password",
+  "submit": "submit",
+  "userName": "User name",
+  "Cpassword": "Password Confirmation",
+  "mail": "Mail",
+  "phone": "Phone number",
+  "address": "Address",
+  "transport": "Transport",
+  "Driving": "Driving",
+  "Cycling": "Cycling",
+  "Walking": "Walking"
 }

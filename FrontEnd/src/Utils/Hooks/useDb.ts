@@ -4,7 +4,7 @@ export default function useTranslate() {
 
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState<any>(null);
-	const [data, setData] = useState<any>({});
+	const [data, setData] = useState<{} | {[key in string]: any}>({});
 
   const dBComm = (dbName: string, collName: string, query: object, uri: string) => {
     var Params = {

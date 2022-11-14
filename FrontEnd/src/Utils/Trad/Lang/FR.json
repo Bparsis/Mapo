@@ -5,5 +5,17 @@
   "Signup": "Inscription",
   "Profile": "Profil",
   "Logout": "Déconnection",
-  "NotFound404": "Erreur 404"
+  "NotFound404": "Erreur 404",
+  "userName or email": "Nom d'utilisateur ou mail",
+  "password": "Mot de passe",
+  "submit": "valider",
+  "userName": "Nom d'utilisateur",
+  "Cpassword": "Confirmation de mot de passe",
+  "mail": "Mail",
+  "phone": "numéro de téléphone",
+  "address": "Adresse",
+  "transport": "Transport",
+  "Driving": "Voiture",
+  "Cycling": "Velo",
+  "Walking": "Marche"
 }

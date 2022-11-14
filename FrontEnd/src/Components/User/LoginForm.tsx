@@ -11,7 +11,7 @@ const LoginForm = ({ closeModal }: { closeModal: () => void }) => {
   const [formErrors, setFormErrors] = useState([]);
 
   const AppCtx = useContext(AppContext);
-  const { setConnected, setUser } = { ...AppCtx! }
+  const { setConnected, setUser, translate } = { ...AppCtx! }
 
   useEffect(() => {
     if (!loading && Object.keys(data).length !== 0) {
@@ -21,13 +21,13 @@ const LoginForm = ({ closeModal }: { closeModal: () => void }) => {
   }, [data, loading]);
 
   const handledbResponse = () => {
-    if (!data.error) {
+    if (!data["error"]) {
       setConnected(true);
-      setUser(data.user);
+      setUser(data["user"]);
       closeModal();
       setFormErrors([]);
     } else {
-      setFormErrors(data.list);
+      setFormErrors(data["list"]);
     }
   }
 
@@ -57,19 +57,19 @@ const LoginForm = ({ closeModal }: { closeModal: () => void }) => {
     <form onSubmit={(e) => handleSubmit(e)}>
       <fieldset className="login">
         <label htmlFor="login">
-          <span>userName or email : </span><br />
-          <input type="text" name="login" id="login" placeholder="userName or email" required /><br />
+          <span>{translate("userName or email")} </span><br />
+          <input type="text" name="login" id="login" placeholder={translate("userName or email")} required /><br />
           <span>{printError("login")}</span>
         </label>
       </fieldset>
       <fieldset className="PassWord">
         <label htmlFor="passwordLogin">
-          <span>password : </span>
-          <input type="password" name="passwordLogin" id="passwordLogin" placeholder="password" required />
+          <span>{translate("password")}</span><br />
+          <input type="password" name="passwordLogin" id="passwordLogin" placeholder={translate("password")} required />
         </label>
       </fieldset>
       <fieldset className="Submit">
-        <button type="submit">submit</button>
+        <button type="submit">{translate("submit")}</button>
       </fieldset>
     </form>
   )

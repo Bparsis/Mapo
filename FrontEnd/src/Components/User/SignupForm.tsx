@@ -33,7 +33,7 @@ const SignupForm = ({ closeModal }: { closeModal: () => void }) => {
 
   const printError = (flag: string): string => {
     let msg: string;
-    formErrors.map((error)=>{
+    formErrors.forEach((error)=>{
       if (error.flag === flag){
         msg = error.message;
       }

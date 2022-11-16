@@ -18,9 +18,7 @@ export default function useTranslate() {
         query: query,
       })
     };
-    console.log(Params)
     setLoading(true);
-    console.log(Params.body);
     fetch(uri, Params)
       .then((res) => res.json())
       .then((res: object) => setData(res))
